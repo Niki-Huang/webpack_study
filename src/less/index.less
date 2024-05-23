@@ -1,0 +1,35 @@
+// 定义变量
+@primary-color: #4caf50;
+@font-size: 16px;
+@padding: 10px;
+
+// 混合
+.border-radius(@radius) {
+  border-radius: @radius;
+}
+
+// 使用变量和嵌套
+.container {
+  font-size: @font-size;
+  padding: @padding;
+  background-color: @primary-color;
+
+  // 嵌套规则
+  .header {
+    font-size: @font-size * 1.5;
+    color: lighten(@primary-color, 20%);
+  }
+
+  .content {
+    padding: @padding * 2;
+    color: darken(@primary-color, 10%);
+  }
+
+  // 调用混合
+  .button {
+    .border-radius(5px);
+    background-color: darken(@primary-color, 20%);
+    color: white;
+    padding: @padding / 2;
+  }
+}
